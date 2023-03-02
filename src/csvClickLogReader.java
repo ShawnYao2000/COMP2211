@@ -47,25 +47,6 @@ public class csvClickLogReader {
         preparedStatement.executeUpdate();
       }
 
-      // Select the data from the click_log table
-      String selectSql = "SELECT * FROM click_log";
-      Statement selectStatement = connection.createStatement();
-      ResultSet resultSet = selectStatement.executeQuery(selectSql);
-
-      // Print out the data for verification
-      System.out.println("Inserted data:");
-      System.out.println("---------------");
-      while (resultSet.next()) {
-        String date = resultSet.getString("date");
-        String id = resultSet.getString("id");
-        double clickCost = resultSet.getDouble("click_cost");
-        System.out.println(date + ", " + id + ", " + clickCost);
-      }
-
-      // Close the result set, select statement, and file reader
-      resultSet.close();
-      selectStatement.close();
-
     } catch (IOException e) {
       System.err.println("Error reading file: " + e.getMessage());
     } catch (SQLException e) {
