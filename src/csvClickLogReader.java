@@ -16,7 +16,7 @@ public class csvClickLogReader {
     String delimiter = ",";
 
     // Database connection details
-    String jdbcUrl = "jdbc:sqlite:/Users/mac/IdeaProjects/1206/COMP2211/click_log.db";
+    String jdbcUrl = "jdbc:sqlite:/Users/mac/IdeaProjects/1206/COMP2211/logDatabase.db";
 
     Connection connection = null;
     PreparedStatement preparedStatement = null;
