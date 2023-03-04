@@ -8,9 +8,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class csvClickLogReader {
-  public static void main(String[] args) {
-    String filePath = "/Users/mac/Desktop/SEGP/2_week_campaign_2/click_log.csv";
+class csvClickLogReader {
+
+  public static void main(String filePath) {
+
     BufferedReader bufferedReader = null;
     String line = "";
     String delimiter = ",";
