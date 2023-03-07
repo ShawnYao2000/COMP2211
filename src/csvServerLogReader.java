@@ -9,8 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class csvServerLogReader {
-  public static void main(String[] args) {
-    String filePath = "/Users/mac/Desktop/SEGP/2_week_campaign_2/server_log.csv";
+  public static void main(String filePath) {
     BufferedReader bufferedReader = null;
     String line = "";
     String delimiter = ",";

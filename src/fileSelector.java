@@ -40,10 +40,20 @@ public class fileSelector extends JFrame {
       public void actionPerformed(ActionEvent e) {
         if (filePath != null && !filePath.isEmpty()) {
           // Pass the file path to another class
-          csvClickLogReader.main(filePath);
+          Switcher.main(filePath);
           // Display a pop-up notification
           JOptionPane.showMessageDialog(fileSelector.this, "File has been processed.");
         }
+      }
+    });
+
+    JButton displayButton = new JButton("Display");
+    displayButton.setBackground(Color.GREEN);
+    displayButton.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        JFrame statsFrame = new JFrame("Statistics");
+        statsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
       }
     });
 
@@ -53,6 +63,7 @@ public class fileSelector extends JFrame {
     contentPane.add(pathField);
     contentPane.add(selectButton);
     contentPane.add(processButton);
+    contentPane.add(displayButton);
 
     // Set the size and visibility of the frame
     setSize(500, 100);
@@ -62,9 +73,5 @@ public class fileSelector extends JFrame {
   public static void main(String[] args) {
     // Create an instance of the fileSelector class
     new fileSelector();
-  }
-
-  public String getFilePath() {
-    return filePath;
   }
 }
