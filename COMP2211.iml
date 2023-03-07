@@ -9,5 +9,22 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="KotlinJavaRuntime" level="project" />
     <orderEntry type="library" name="groovy-4.0.2" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES />
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/lib/javafx-sdk-19.0.2.1" />
+          <root url="file://$MODULE_DIR$/lib/javafx-sdk-19.0.2.1/src/javafx.base" />
+          <root url="file://$MODULE_DIR$/lib/javafx-sdk-19.0.2.1/src/javafx.controls" />
+          <root url="file://$MODULE_DIR$/lib/javafx-sdk-19.0.2.1/src/javafx.fxml" />
+          <root url="file://$MODULE_DIR$/lib/javafx-sdk-19.0.2.1/src/javafx.graphics" />
+          <root url="file://$MODULE_DIR$/lib/javafx-sdk-19.0.2.1/src/javafx.media" />
+          <root url="file://$MODULE_DIR$/lib/javafx-sdk-19.0.2.1/src/javafx.swing" />
+          <root url="file://$MODULE_DIR$/lib/javafx-sdk-19.0.2.1/src/javafx.web" />
+        </SOURCES>
+        <jarDirectory url="file://$MODULE_DIR$/lib/javafx-sdk-19.0.2.1" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
   </component>
 </module>
