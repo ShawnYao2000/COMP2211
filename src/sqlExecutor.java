@@ -7,12 +7,14 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class sqlExecutor {
 
-  public static void main(String[] args) {
-    String scriptPath = "/Users/mac/IdeaProjects/1206/COMP2211/bounceCount.sql";
-    String jdbcUrl = "jdbc:sqlite:/Users/mac/IdeaProjects/1206/COMP2211/logDatabase.db";
+  public static String[] executeSqlScript(String scriptPath, String jdbcUrl) {
+
+    List<String> resultList = new ArrayList<>();
 
     try {
       // Load the SQLite JDBC driver
@@ -38,14 +40,15 @@ public class sqlExecutor {
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(query);
 
-        // Print out the results of the query
+        // Append the results of the query to the result list
         ResultSetMetaData metadata = resultSet.getMetaData();
         int columnCount = metadata.getColumnCount();
         while (resultSet.next()) {
+          StringBuilder row = new StringBuilder();
           for (int i = 1; i <= columnCount; i++) {
-            System.out.print(resultSet.getString(i) + "\t");
+            row.append(resultSet.getString(i)).append("\t");
           }
-          System.out.println();
+          resultList.add(row.toString());
         }
 
         // Clean up resources
@@ -58,6 +61,21 @@ public class sqlExecutor {
 
     } catch (Exception e) {
       e.printStackTrace();
+    }
+
+    return resultList.toArray(new String[0]);
+  }
+
+
+  public static void main(String[] args) {
+    String scriptPath = "/Users/mac/IdeaProjects/1206/COMP2211/bounceCount.sql";
+    String jdbcUrl = "jdbc:sqlite:/Users/mac/IdeaProjects/1206/COMP2211/logDatabase.db";
+
+    String[] results = executeSqlScript(scriptPath, jdbcUrl);
+
+    // Print out each row of results
+    for (String row : results) {
+      System.out.println(row);
     }
   }
 }
